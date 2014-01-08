@@ -85,7 +85,7 @@ If we were to replace <code>run 99</code> with <code>run 999</code> in the expre
 
 
 <p>
-Just for fun, here are all 99 of Matt's example expressions that evaluate to <code>(I love you)</code> in Racket.  All, or almost all, of these examples should work in Scheme as well.
+Just for fun, here are all the example expressions from Matt's blog post that evaluate to <code>(I love you)</code> in Scheme as well as Racket.  I've left out any examples which are legal Scheme.
 </p> 
 
 
@@ -228,17 +228,6 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 (apply (lambda (a c b) (list a b c)) 
        (list 'I 'you 'love))</div>
 
-<div class="live" id="loveex40">
-((lambda (a b [c 'you]) (list a b c)) 'I 'love)</div>
-
-<div class="live" id="loveex41">
-((lambda (#:foo b #:bar c #:baz a)
-   (list a b c))
- #:baz 'I #:bar 'you #:foo 'love)</div>
-
-<div class="live" id="loveex  42">
-((lambda (a b #:key [c 'me]) (list a b c)) #:key 'you 'I 'love)</div>
-
 <div class="live" id="loveex43">
 (let ([f (lambda (x)
            (lambda (y)
@@ -311,7 +300,7 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
               '(I love you)
               '(() () ())))</div>
 
-<div class="live" id="loveex  61">
+<div class="live" id="loveex61">
 (filter (lambda (x) (not (eq? x 'cannot))) 
         '(I cannot love you))</div>
 
@@ -320,10 +309,6 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 
 <div class="live" id="loveex63">
 (foldl cons '() '(you love I))</div>
-
-<div class="live" id="loveex64">
-(for/list ([word #(I love you)])
-  word)</div>
 
 <div class="live" id="loveex65">
 (cond
@@ -341,114 +326,11 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
   [(a b c) '(Not me)]
   [(3 2 1) '(I love you)])</div>
 
-<div class="live" id="loveex68">
-(match #t
-  [#f '(Not me)]
-  [#t '(I love you)])</div>
-
-<div class="live" id="loveex69">
-(match #t
-  [#f '(Not me)]
-  [_  '(I love you)])</div>
-
-<div class="live" id="loveex70">
-(match 'you
-  ['me '(Not me)]
-  [x   `(I love ,x)])</div>
-
-<div class="live" id="loveex71">
-(match '(foo bar)
-  ['(foo bar) '(I love you)])</div>
-
-<div class="live" id="loveex72">
-(match '(I cannot lift you)
-  [(list 'I 'cannot _ c) `(I love ,c)])</div>
-
-<div class="live" id="loveex73">
-(match '(2 3 1)
-  [(list-no-order 3 1 2)
-   '(I love you)])</div>
-
-<div class="live" id="loveex74">
-(match '(love you I)
-  [(list-no-order 'I 'love foo)
-   `(I love ,foo)])</div>
-
-<div class="live" id="loveex75">
-(match '(3 . 4)
-  [(cons 3 4)
-   '(I love you)])</div>
-
-<div class="live" id="loveex76">
-(match '(3 love 1)
-  [(cons 3 (cons x (cons 1 '())))
-   `(I ,x you)])</div>
-
-<div class="live" id="loveex77">
-(match '(3 love 1)
-  [(cons 3 (cons x (cons 1 '())))
-   `(I (unquote x) you)])</div>
-
-<div class="live" id="loveex78">
-(match 3
-  [(? symbol?) '(Not me)]
-  [(? string?) '(Me neither)]
-  [(? number?) '(I love you)])</div>
-
-<div class="live" id="loveex79">
-(match 3
-  [(not 4)   '(I love you)]
-  [3         'unreachable])</div>
-
-<div class="live" id="loveex  80">
-(match '(you love I)
-  [`(,c love ,a)
-   `(,a love ,c)])</div>
-
-<div class="live" id="loveex81">
-(match '(We love you)
-  [`(,_ . ,rest)
-   `(I . ,rest)])</div>
-
-<div class="live" id="loveex82">
-(match '(We love you)
-  [`(,_ ,rest ...)
-   `(I ,@rest)])</div>
-
-<div class="live" id="loveex83">
-(match '(We love you)
-  [(list _ rest ...)
-   `(I ,@rest)])</div>
-
-<div class="live" id="loveex84">
-(match #(1 love 3)
-  [(vector (? number?) b (? number?))
-   `(I ,b you)])</div>
-
-<div class="live" id="loveex85">
-(match #hash((1 . I) (3 . you) (5 . love))
-  [(hash-table (1 a) (5 b) (3 c))
-   (list a b c)])</div>
-
-<div class="live" id="loveex86">
-(match 'you
-  [(and x (? symbol?)) `(I love ,x)])</div>
-
-<div class="live" id="loveex87">
-(match '100
-  [(app (lambda (n) (- n 1)) 99)
-   '(I love you)])</div>
-
 <div class="live" id="loveex88">
 (list 'I 
       (call/cc (lambda (cc)
                  (error (cc 'love))))
       'you)</div>
-
-<div class="live" id="loveex89">
-(with-handlers ([symbol? (lambda (p)
-                             `(I ,p you))])
-    (raise 'love))</div>
 
 <div class="live" id="loveex90">
 (let ([problem (delay (car '()))])
@@ -489,14 +371,5 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 <div class="live" id="loveex97">
 (list (touch (future (lambda () 'I))) 'love 'you)</div>
 
-<div class="live" id="loveex98">
-(let ([a (make-parameter "a")] 
-      [b (make-parameter "b")]
-      [c (make-parameter "c")])
-  (parameterize ([a 'i] [b 'love] [c 'you])
-    (list (a) 
-          ((parameterize ([b 'dislike])
-             (lambda () (b))))
-          (c))))</div>
 
 {% endblock %}

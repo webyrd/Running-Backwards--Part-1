@@ -125,18 +125,17 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 <div class="live" id="loveex11">
 '(I . (love you))</div>
 
-
 <div class="live" id="loveex12">
 `(I love you)</div>
 
 <div class="live" id="loveex13">
 `(I ,'love you)</div>
 
-;;
-(quasiquote (I ,'love  you))
+<div class="live" id="loveexdoh1">
+(quasiquote (I ,'love  you))</div>
 
-;;
-(quasiquote (I (unquote 'love) you))
+<div class="live" id="loveexdoh2">
+(quasiquote (I (unquote 'love) you))</div>
 
 <div class="live" id="loveex14">
 `(I ,`love you)</div>
@@ -166,7 +165,7 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 <div class="live" id="loveex22">
 `(I ,@(list 'love 'you))</div>
 
-<div class="live" id="loveex  23">
+<div class="live" id="loveex23">
 `(,@(list 'I 'love) you)</div>
 
 <div class="live" id="loveex24">
@@ -207,7 +206,6 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
   '(I love you not)
   '(I love you))</div>
 
-
 <div class="live" id="loveex33">
 (vector->list (vector 'I 'love 'you))</div>
 
@@ -216,7 +214,6 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 
 <div class="live" id="loveex35">
 (stream->list (stream 'I 'love 'you))</div>
-
 
 <div class="live" id="loveex36">
 ((lambda args args) 'I 'love 'you)</div>
@@ -243,12 +240,11 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 ((lambda (a b #:key [c 'me]) (list a b c)) #:key 'you 'I 'love)</div>
 
 <div class="live" id="loveex43">
-(let ([f (λ (x)
-           (λ (y)
-             (λ (z)
+(let ([f (lambda (x)
+           (lambda (y)
+             (lambda (z)
                (list x y z))))])
   (((f 'I) 'love) 'you))</div>
-
 
 <div class="live" id="loveex44">
 (let ([f (case-lambda 
@@ -256,8 +252,6 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
            [(x) 'love]
            [(x y) 'you])])
   (list (f) (f 1) (f 1 2)))</div>
-
-    
 
 <div class="live" id="loveex45">
 (append '(I love) '(you))</div>
@@ -283,27 +277,25 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 <div class="live" id="loveex52">
 (take '(I love you not) 3)</div>
 
-;;
-(take-right '(I think I love you) 3)
-      
+<div class="live" id="loveexdoh3">
+(take-right '(I think I love you) 3)</div>
+
 <div class="live" id="loveex53">
 (drop '(She knows I love you) 2)</div>
 
 <div class="live" id="loveex54">
 (drop-right '(I love you no more) 2)</div>
 
-
-
 <div class="live" id="loveex55">
 (map (lambda (x) (if (eq? x 'hate) 'love x))
      '(I hate you))</div>
 
 <div class="live" id="loveex56">
-(map (λ (i) (vector-ref #(love you I) i))
+(map (lambda (i) (vector-ref #(love you I) i))
      '(2 0 1))</div>
 
 <div class="live" id="loveex57">
-(map (λ (k) (hash-ref #hash(("foo" . I) 
+(map (lambda (k) (hash-ref #hash(("foo" . I) 
                             ("baz" . you)
                             ("bar" . love)) k))
      '("foo" "bar" "baz"))</div>
@@ -315,10 +307,9 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 (map string->symbol (string-split "I-love-you" "-"))</div>
 
 <div class="live" id="loveex60">
-(flatten (map (λ (a b) (cons a b))
+(flatten (map (lambda (a b) (cons a b))
               '(I love you)
               '(() () ())))</div>
-
 
 <div class="live" id="loveex  61">
 (filter (lambda (x) (not (eq? x 'cannot))) 
@@ -333,7 +324,6 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 <div class="live" id="loveex64">
 (for/list ([word #(I love you)])
   word)</div>
-
 
 <div class="live" id="loveex65">
 (cond
@@ -350,9 +340,6 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 (case 1
   [(a b c) '(Not me)]
   [(3 2 1) '(I love you)])</div>
-
-
-
 
 <div class="live" id="loveex68">
 (match #t
@@ -449,13 +436,12 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 
 <div class="live" id="loveex87">
 (match '100
-  [(app (λ (n) (- n 1)) 99)
+  [(app (lambda (n) (- n 1)) 99)
    '(I love you)])</div>
-
 
 <div class="live" id="loveex88">
 (list 'I 
-      (call/cc (λ (cc)
+      (call/cc (lambda (cc)
                  (error (cc 'love))))
       'you)</div>
 
@@ -463,7 +449,6 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 (with-handlers ([symbol? (lambda (p)
                              `(I ,p you))])
     (raise 'love))</div>
-
 
 <div class="live" id="loveex90">
 (let ([problem (delay (car '()))])
@@ -478,8 +463,6 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
          [c 'you]
          [b 'love])
   (force x))</div>
-       
-
 
 <div class="live" id="loveex93">
 (let ([word 'know])
@@ -490,7 +473,6 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 (let ([word-box (box 'know)])
   (set-box! word-box 'love)
   `(I ,(unbox word-box) you))</div>
-
 
 <div class="live" id="loveex95">
 (let-syntax ([un-yoda-list
@@ -505,7 +487,7 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
               (cons (read in) '()))))</div>
 
 <div class="live" id="loveex97">
-(list (touch (future (λ () 'I))) 'love 'you)</div>
+(list (touch (future (lambda () 'I))) 'love 'you)</div>
 
 <div class="live" id="loveex98">
 (let ([a (make-parameter "a")] 
@@ -514,7 +496,7 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
   (parameterize ([a 'i] [b 'love] [c 'you])
     (list (a) 
           ((parameterize ([b 'dislike])
-             (λ () (b))))
+             (lambda () (b))))
           (c))))</div>
 
 {% endblock %}

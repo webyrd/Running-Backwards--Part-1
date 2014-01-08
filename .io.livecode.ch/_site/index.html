@@ -8,10 +8,10 @@ This interactive tutorial is based on the video <a href="http://youtu.be/kS_2_-E
 
 <h2>(I love you)</h2>
 <p>
-Matt Might's blog post <a href="http://matt.might.net/articles/i-love-you-in-racket/">99 ways to say <code>'(I love you)</code> in Racket</a>, contains...99 programs that evaluate to the list <code>(I love you)</code> in the <a href="http://racket-lang.org/">Racket</a> programming language.  We will be using the Scheme programming language instead of Racket---most or all of these programs will evaluate identically in both languages.
+Matt Might's blog post <a href="http://matt.might.net/articles/i-love-you-in-racket/">99 ways to say <code>'(I love you)</code> in Racket</a>, contains...99 expressions that evaluate to the list <code>(I love you)</code> in the <a href="http://racket-lang.org/">Racket</a> programming language.  We will be using the Scheme programming language instead of Racket---most of these expressions evaluate identically in both languages.
 </p>
 
-<p>Here are the four <code>(I love you)</code> programs I evaluated in the video.</p>
+<p>Here are the four <code>(I love you)</code> expressions I evaluated in the video.</p>
 
 <div class="live" id="love1">
 (quote (I love you))</div>
@@ -28,7 +28,9 @@ Matt Might's blog post <a href="http://matt.might.net/articles/i-love-you-in-rac
         (car words)
         (car (cdr words))))</div>
 
+<p>
 Feel free to edit one of the examples above to include your own code, or paste in an example from Matt's blog post.
+</p>
 
 <div class="live" id="mk1">
 (run 1 (expr) (evalo expr '(I love you)))</div>

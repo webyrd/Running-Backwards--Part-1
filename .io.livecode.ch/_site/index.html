@@ -89,47 +89,47 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 </p> 
 
 
-<div class="live" id="lovelamp0">
+<div class="live" id="loveex0">
 '(I love you)</div>
 
-<div class="live" id="lovelamp1">
+<div class="live" id="loveex1">
 (quote (I love you))</div>
 
-<div class="live" id="lovelamp2">
+<div class="live" id="loveex2">
 (list 'I 'love 'you)</div>
 
-<div class="live" id="lovelamp3">
+<div class="live" id="loveex3">
 (list (quote I) (quote love) (quote you))</div>
 
-<div class="live" id="lovelamp4">
+<div class="live" id="loveex4">
 (cons 'I (cons 'love (cons 'you '())))</div>
 
-<div class="live" id="lovelamp5">
+<div class="live" id="loveex5">
 (cons 'I (cons 'love (list 'you)))</div>
 
-<div class="live" id="lovelamp6">
+<div class="live" id="loveex6">
 (cons 'I (list 'love 'you))</div>
 
-<div class="live" id="lovelamp7">
+<div class="live" id="loveex7">
 (cons 'I '(love you))</div>
 
-<div class="live" id="lovelamp8">
+<div class="live" id="loveex8">
 '(I love . (you))</div>
 
-<div class="live" id="lovelamp9">
+<div class="live" id="loveex9">
 '(I . (love . (you)))</div>
 
-<div class="live" id="lovelamp10">
+<div class="live" id="loveex10">
 '(I . (love . (you . ())))</div>
 
-<div class="live" id="lovelamp11">
+<div class="live" id="loveex11">
 '(I . (love you))</div>
 
 
-<div class="live" id="lovelamp12">
+<div class="live" id="loveex12">
 `(I love you)</div>
 
-<div class="live" id="lovelamp13">
+<div class="live" id="loveex13">
 `(I ,'love you)</div>
 
 ;;
@@ -138,111 +138,111 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 ;;
 (quasiquote (I (unquote 'love) you))
 
-<div class="live" id="lovelamp14">
+<div class="live" id="loveex14">
 `(I ,`love you)</div>
 
-<div class="live" id="lovelamp15">
+<div class="live" id="loveex15">
 (let ([verb 'love])
   `(I ,verb you))</div>
 
-<div class="live" id="lovelamp16">
+<div class="live" id="loveex16">
 `(I ,(string->symbol "love") you)</div>
 
-<div class="live" id="lovelamp17">
+<div class="live" id="loveex17">
 `(I ,(string->symbol (list->string '(#\l #\o #\v #\e))) you)</div>
 
-<div class="live" id="lovelamp18">
+<div class="live" id="loveex18">
 `(I love . (you))</div>
 
-<div class="live" id="lovelamp19">
+<div class="live" id="loveex19">
 `(I love . ,(list 'you))</div>
 
-<div class="live" id="lovelamp20">
+<div class="live" id="loveex20">
 `(I love ,@'(you))</div>
 
-<div class="live" id="lovelamp21">
+<div class="live" id="loveex21">
 `(I love (unquote-splicing '(you)))</div>
 
-<div class="live" id="lovelamp22">
+<div class="live" id="loveex22">
 `(I ,@(list 'love 'you))</div>
 
-<div class="live" id="lovelamp  23">
+<div class="live" id="loveex  23">
 `(,@(list 'I 'love) you)</div>
 
-<div class="live" id="lovelamp24">
+<div class="live" id="loveex24">
 `(,@'(I love you))</div>
 
-<div class="live" id="lovelamp25">
+<div class="live" id="loveex25">
 `,'(I love you)</div>
 
-<div class="live" id="lovelamp26">
+<div class="live" id="loveex26">
 `(I love you . ,'())</div>
 
-<div class="live" id="lovelamp27">
+<div class="live" id="loveex27">
 (car (list '(I love you)))</div>
 
-<div class="live" id="lovelamp28">
+<div class="live" id="loveex28">
 (cdr '(Hark! I love you))</div>
 
-<div class="live" id="lovelamp29">
+<div class="live" id="loveex29">
 (let ([words '(love you I)])
   (list (car (cdr (cdr words)))
         (car words)
         (car (cdr words))))</div>
 
-<div class="live" id="lovelamp30">
+<div class="live" id="loveex30">
 (let ([words '(love you I)])
   (list (caddr words)
         (car words)
         (cadr words)))</div>
 
-<div class="live" id="lovelamp31">
+<div class="live" id="loveex31">
 (let* ([c '(you)]
        [b (cons 'love c)]
        [a (cons 'I b)])
   a)</div>
 
-<div class="live" id="lovelamp32">
+<div class="live" id="loveex32">
 (let ()
   '(I love you not)
   '(I love you))</div>
 
 
-<div class="live" id="lovelamp33">
+<div class="live" id="loveex33">
 (vector->list (vector 'I 'love 'you))</div>
 
-<div class="live" id="lovelamp34">
+<div class="live" id="loveex34">
 (vector->list #(I love you))</div>
 
-<div class="live" id="lovelamp35">
+<div class="live" id="loveex35">
 (stream->list (stream 'I 'love 'you))</div>
 
 
-<div class="live" id="lovelamp36">
+<div class="live" id="loveex36">
 ((lambda args args) 'I 'love 'you)</div>
 
-<div class="live" id="lovelamp37">
+<div class="live" id="loveex37">
 ((lambda (one two . rest) rest) 'You 'believe 'I 'love 'you)</div>
 
-<div class="live" id="lovelamp38">
+<div class="live" id="loveex38">
 ((lambda (a c b) (list a b c)) 'I 'you 'love)</div>
 
-<div class="live" id="lovelamp39">
+<div class="live" id="loveex39">
 (apply (lambda (a c b) (list a b c)) 
        (list 'I 'you 'love))</div>
 
-<div class="live" id="lovelamp40">
+<div class="live" id="loveex40">
 ((lambda (a b [c 'you]) (list a b c)) 'I 'love)</div>
 
-<div class="live" id="lovelamp41">
+<div class="live" id="loveex41">
 ((lambda (#:foo b #:bar c #:baz a)
    (list a b c))
  #:baz 'I #:bar 'you #:foo 'love)</div>
 
-<div class="live" id="lovelamp  42">
+<div class="live" id="loveex  42">
 ((lambda (a b #:key [c 'me]) (list a b c)) #:key 'you 'I 'love)</div>
 
-<div class="live" id="lovelamp43">
+<div class="live" id="loveex43">
 (let ([f (λ (x)
            (λ (y)
              (λ (z)
@@ -250,7 +250,7 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
   (((f 'I) 'love) 'you))</div>
 
 
-<div class="live" id="lovelamp44">
+<div class="live" id="loveex44">
 (let ([f (case-lambda 
            [() 'I]
            [(x) 'love]
@@ -259,94 +259,94 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 
     
 
-<div class="live" id="lovelamp45">
+<div class="live" id="loveex45">
 (append '(I love) '(you))</div>
 
-<div class="live" id="lovelamp46">
+<div class="live" id="loveex46">
 (append '(I) '(love) '(you))</div>
 
-<div class="live" id="lovelamp47">
+<div class="live" id="loveex47">
 (flatten '((I) (love you)))</div>
 
-<div class="live" id="lovelamp48">
+<div class="live" id="loveex48">
 (flatten '((I) (love) (you) ()))</div>
 
-<div class="live" id="lovelamp49">
+<div class="live" id="loveex49">
 (reverse '(you love I))</div>
 
-<div class="live" id="lovelamp50">
+<div class="live" id="loveex50">
 (remove 'cannot '(I cannot love you))</div>
 
-<div class="live" id="lovelamp51">
+<div class="live" id="loveex51">
 (remove-duplicates '(I love love love you))</div>
 
-<div class="live" id="lovelamp52">
+<div class="live" id="loveex52">
 (take '(I love you not) 3)</div>
 
 ;;
 (take-right '(I think I love you) 3)
       
-<div class="live" id="lovelamp53">
+<div class="live" id="loveex53">
 (drop '(She knows I love you) 2)</div>
 
-<div class="live" id="lovelamp54">
+<div class="live" id="loveex54">
 (drop-right '(I love you no more) 2)</div>
 
 
 
-<div class="live" id="lovelamp55">
+<div class="live" id="loveex55">
 (map (lambda (x) (if (eq? x 'hate) 'love x))
      '(I hate you))</div>
 
-<div class="live" id="lovelamp56">
+<div class="live" id="loveex56">
 (map (λ (i) (vector-ref #(love you I) i))
      '(2 0 1))</div>
 
-<div class="live" id="lovelamp57">
+<div class="live" id="loveex57">
 (map (λ (k) (hash-ref #hash(("foo" . I) 
                             ("baz" . you)
                             ("bar" . love)) k))
      '("foo" "bar" "baz"))</div>
      
-<div class="live" id="lovelamp58">
+<div class="live" id="loveex58">
 (map string->symbol (sort (list "love" "you" "I") string<?))</div>
 
-<div class="live" id="lovelamp59">
+<div class="live" id="loveex59">
 (map string->symbol (string-split "I-love-you" "-"))</div>
 
-<div class="live" id="lovelamp60">
+<div class="live" id="loveex60">
 (flatten (map (λ (a b) (cons a b))
               '(I love you)
               '(() () ())))</div>
 
 
-<div class="live" id="lovelamp  61">
+<div class="live" id="loveex  61">
 (filter (lambda (x) (not (eq? x 'cannot))) 
         '(I cannot love you))</div>
 
-<div class="live" id="lovelamp62">
+<div class="live" id="loveex62">
 (foldr cons '() '(I love you))</div>
 
-<div class="live" id="lovelamp63">
+<div class="live" id="loveex63">
 (foldl cons '() '(you love I))</div>
 
-<div class="live" id="lovelamp64">
+<div class="live" id="loveex64">
 (for/list ([word #(I love you)])
   word)</div>
 
 
-<div class="live" id="lovelamp65">
+<div class="live" id="loveex65">
 (cond
   [(even? 3) '(Not me)]
   [(odd?  3) '(I love you)])</div>
   
-<div class="live" id="lovelamp66">
+<div class="live" id="loveex66">
 (cond
   [(even? 3) '(Not me)]
   [(odd?  2) '(Nor I)]
   [else      '(I love you)])</div>
   
-<div class="live" id="lovelamp67">
+<div class="live" id="loveex67">
 (case 1
   [(a b c) '(Not me)]
   [(3 2 1) '(I love you)])</div>
@@ -354,125 +354,125 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
 
 
 
-<div class="live" id="lovelamp68">
+<div class="live" id="loveex68">
 (match #t
   [#f '(Not me)]
   [#t '(I love you)])</div>
 
-<div class="live" id="lovelamp69">
+<div class="live" id="loveex69">
 (match #t
   [#f '(Not me)]
   [_  '(I love you)])</div>
 
-<div class="live" id="lovelamp70">
+<div class="live" id="loveex70">
 (match 'you
   ['me '(Not me)]
   [x   `(I love ,x)])</div>
 
-<div class="live" id="lovelamp71">
+<div class="live" id="loveex71">
 (match '(foo bar)
   ['(foo bar) '(I love you)])</div>
 
-<div class="live" id="lovelamp72">
+<div class="live" id="loveex72">
 (match '(I cannot lift you)
   [(list 'I 'cannot _ c) `(I love ,c)])</div>
 
-<div class="live" id="lovelamp73">
+<div class="live" id="loveex73">
 (match '(2 3 1)
   [(list-no-order 3 1 2)
    '(I love you)])</div>
 
-<div class="live" id="lovelamp74">
+<div class="live" id="loveex74">
 (match '(love you I)
   [(list-no-order 'I 'love foo)
    `(I love ,foo)])</div>
 
-<div class="live" id="lovelamp75">
+<div class="live" id="loveex75">
 (match '(3 . 4)
   [(cons 3 4)
    '(I love you)])</div>
 
-<div class="live" id="lovelamp76">
+<div class="live" id="loveex76">
 (match '(3 love 1)
   [(cons 3 (cons x (cons 1 '())))
    `(I ,x you)])</div>
 
-<div class="live" id="lovelamp77">
+<div class="live" id="loveex77">
 (match '(3 love 1)
   [(cons 3 (cons x (cons 1 '())))
    `(I (unquote x) you)])</div>
 
-<div class="live" id="lovelamp78">
+<div class="live" id="loveex78">
 (match 3
   [(? symbol?) '(Not me)]
   [(? string?) '(Me neither)]
   [(? number?) '(I love you)])</div>
 
-<div class="live" id="lovelamp79">
+<div class="live" id="loveex79">
 (match 3
   [(not 4)   '(I love you)]
   [3         'unreachable])</div>
 
-<div class="live" id="lovelamp  80">
+<div class="live" id="loveex  80">
 (match '(you love I)
   [`(,c love ,a)
    `(,a love ,c)])</div>
 
-<div class="live" id="lovelamp81">
+<div class="live" id="loveex81">
 (match '(We love you)
   [`(,_ . ,rest)
    `(I . ,rest)])</div>
 
-<div class="live" id="lovelamp82">
+<div class="live" id="loveex82">
 (match '(We love you)
   [`(,_ ,rest ...)
    `(I ,@rest)])</div>
 
-<div class="live" id="lovelamp83">
+<div class="live" id="loveex83">
 (match '(We love you)
   [(list _ rest ...)
    `(I ,@rest)])</div>
 
-<div class="live" id="lovelamp84">
+<div class="live" id="loveex84">
 (match #(1 love 3)
   [(vector (? number?) b (? number?))
    `(I ,b you)])</div>
 
-<div class="live" id="lovelamp85">
+<div class="live" id="loveex85">
 (match #hash((1 . I) (3 . you) (5 . love))
   [(hash-table (1 a) (5 b) (3 c))
    (list a b c)])</div>
 
-<div class="live" id="lovelamp86">
+<div class="live" id="loveex86">
 (match 'you
   [(and x (? symbol?)) `(I love ,x)])</div>
 
-<div class="live" id="lovelamp87">
+<div class="live" id="loveex87">
 (match '100
   [(app (λ (n) (- n 1)) 99)
    '(I love you)])</div>
 
 
-<div class="live" id="lovelamp88">
+<div class="live" id="loveex88">
 (list 'I 
       (call/cc (λ (cc)
                  (error (cc 'love))))
       'you)</div>
 
-<div class="live" id="lovelamp89">
+<div class="live" id="loveex89">
 (with-handlers ([symbol? (lambda (p)
                              `(I ,p you))])
     (raise 'love))</div>
 
 
-<div class="live" id="lovelamp90">
+<div class="live" id="loveex90">
 (let ([problem (delay (car '()))])
   '(I love you))</div>
 
-<div class="live" id="lovelamp91">
+<div class="live" id="loveex91">
 `(I ,(force (delay 'love)) you)</div>
  
-<div class="live" id="lovelamp92">
+<div class="live" id="loveex92">
 (letrec ([x (delay (list a b c))]
          [a 'I]
          [c 'you]
@@ -481,33 +481,33 @@ Just for fun, here are all 99 of Matt's example expressions that evaluate to <co
        
 
 
-<div class="live" id="lovelamp93">
+<div class="live" id="loveex93">
 (let ([word 'know])
   (set! word 'love)
   `(I ,word you))</div>
 
-<div class="live" id="lovelamp94">
+<div class="live" id="loveex94">
 (let ([word-box (box 'know)])
   (set-box! word-box 'love)
   `(I ,(unbox word-box) you))</div>
 
 
-<div class="live" id="lovelamp95">
+<div class="live" id="loveex95">
 (let-syntax ([un-yoda-list
               (syntax-rules ()
                 [(_ c a b) (list 'a 'b 'c)])])
   (un-yoda-list you I love))</div>
 
-<div class="live" id="lovelamp96">
+<div class="live" id="loveex96">
 (let ((in (open-input-string "I love you")))
   (cons (read in)
         (cons (read in)
               (cons (read in) '()))))</div>
 
-<div class="live" id="lovelamp97">
+<div class="live" id="loveex97">
 (list (touch (future (λ () 'I))) 'love 'you)</div>
 
-<div class="live" id="lovelamp98">
+<div class="live" id="loveex98">
 (let ([a (make-parameter "a")] 
       [b (make-parameter "b")]
       [c (make-parameter "c")])

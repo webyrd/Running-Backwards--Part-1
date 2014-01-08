@@ -36,9 +36,48 @@ Feel free to edit one of the examples above to include your own code, or paste i
 <div class="live" id="mk2">
 (run 2 (expr) (evalo expr '(I love you)))</div>
 
+<div class="live" id="genlove1">
+(list 'I 'love 'you)</div>
+
 <div class="live" id="mk3">
 (run 99 (expr) (evalo expr '(I love you))) </div>
 
+<div class="live" id="genlove2">
+(car (cons '(I love you) (list)))</div>
+
+<div class="live" id="genlove3a">
+((list (car '(I . _.0)) (car '(love . _.1))
+       ((lambda () 'you)))
+ (absent closure _.0) (absent closure _.1))</div>
+
+<div class="live" id="genlove3b">
+(list (car '(I . _.0)) (car '(love . _.1))
+      ((lambda () 'you)))</div>
+
+<div class="live" id="genlove3c">
+(list (car '(I . 5)) (car '(love . _.1))
+     ((lambda () 'you)))</div>
+
+<div class="live" id="genlove3d">
+(list (car '(I . (a b c))) (car '(love . _.1))
+     ((lambda () 'you)))</div>
+
+<div class="live" id="time99">
+(time (length (run 99 (expr) (evalo expr '(I love you)))))</div>
+
+<p>
+To be kind to the server running this code, let's try a run 99 instead of a run 999 for our
+<code>(I love lamp)</code> example.
+</p>
+
+<div class="live" id="lamp1">
+(run 99 (expr) (evalo expr '(I love lamp)))</div>
+
+If we were to replace <code>run 99</code> with <code>run 999</code> in the expression above, the last answer would be:
+
+<div class="live" id="lovelamp1">
+(list (car '(I . _.0)) 'love
+        ((lambda (_.1) (cdr _.1)) '(_.2 . lamp)))</div>
 
 
 {% endblock %}

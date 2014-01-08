@@ -84,4 +84,437 @@ If we were to replace <code>run 99</code> with <code>run 999</code> in the expre
         ((lambda (_.1) (cdr _.1)) '(_.2 . lamp)))</div>
 
 
+<p>
+Just for fun, here are all 99 of Matt's example expressions that evaluate to <code>(I love you)</code> in Racket.  All, or almost all, of these examples should work in Scheme as well.
+</p> 
+
+
+<div class="live" id="lovelamp0">
+'(I love you)</div>
+
+<div class="live" id="lovelamp1">
+(quote (I love you))</div>
+
+<div class="live" id="lovelamp2">
+(list 'I 'love 'you)</div>
+
+<div class="live" id="lovelamp3">
+(list (quote I) (quote love) (quote you))</div>
+
+<div class="live" id="lovelamp4">
+(cons 'I (cons 'love (cons 'you '())))</div>
+
+<div class="live" id="lovelamp5">
+(cons 'I (cons 'love (list 'you)))</div>
+
+<div class="live" id="lovelamp6">
+(cons 'I (list 'love 'you))</div>
+
+<div class="live" id="lovelamp7">
+(cons 'I '(love you))</div>
+
+<div class="live" id="lovelamp8">
+'(I love . (you))</div>
+
+<div class="live" id="lovelamp9">
+'(I . (love . (you)))</div>
+
+<div class="live" id="lovelamp10">
+'(I . (love . (you . ())))</div>
+
+<div class="live" id="lovelamp11">
+'(I . (love you))</div>
+
+
+<div class="live" id="lovelamp12">
+`(I love you)</div>
+
+<div class="live" id="lovelamp13">
+`(I ,'love you)</div>
+
+;;
+(quasiquote (I ,'love  you))
+
+;;
+(quasiquote (I (unquote 'love) you))
+
+<div class="live" id="lovelamp14">
+`(I ,`love you)</div>
+
+<div class="live" id="lovelamp15">
+(let ([verb 'love])
+  `(I ,verb you))</div>
+
+<div class="live" id="lovelamp16">
+`(I ,(string->symbol "love") you)</div>
+
+<div class="live" id="lovelamp17">
+`(I ,(string->symbol (list->string '(#\l #\o #\v #\e))) you)</div>
+
+<div class="live" id="lovelamp18">
+`(I love . (you))</div>
+
+<div class="live" id="lovelamp19">
+`(I love . ,(list 'you))</div>
+
+<div class="live" id="lovelamp20">
+`(I love ,@'(you))</div>
+
+<div class="live" id="lovelamp21">
+`(I love (unquote-splicing '(you)))</div>
+
+<div class="live" id="lovelamp22">
+`(I ,@(list 'love 'you))</div>
+
+<div class="live" id="lovelamp  23">
+`(,@(list 'I 'love) you)</div>
+
+<div class="live" id="lovelamp24">
+`(,@'(I love you))</div>
+
+<div class="live" id="lovelamp25">
+`,'(I love you)</div>
+
+<div class="live" id="lovelamp26">
+`(I love you . ,'())</div>
+
+<div class="live" id="lovelamp27">
+(car (list '(I love you)))</div>
+
+<div class="live" id="lovelamp28">
+(cdr '(Hark! I love you))</div>
+
+<div class="live" id="lovelamp29">
+(let ([words '(love you I)])
+  (list (car (cdr (cdr words)))
+        (car words)
+        (car (cdr words))))</div>
+
+<div class="live" id="lovelamp30">
+(let ([words '(love you I)])
+  (list (caddr words)
+        (car words)
+        (cadr words)))</div>
+
+<div class="live" id="lovelamp31">
+(let* ([c '(you)]
+       [b (cons 'love c)]
+       [a (cons 'I b)])
+  a)</div>
+
+<div class="live" id="lovelamp32">
+(let ()
+  '(I love you not)
+  '(I love you))</div>
+
+
+<div class="live" id="lovelamp33">
+(vector->list (vector 'I 'love 'you))</div>
+
+<div class="live" id="lovelamp34">
+(vector->list #(I love you))</div>
+
+<div class="live" id="lovelamp35">
+(stream->list (stream 'I 'love 'you))</div>
+
+
+<div class="live" id="lovelamp36">
+((lambda args args) 'I 'love 'you)</div>
+
+<div class="live" id="lovelamp37">
+((lambda (one two . rest) rest) 'You 'believe 'I 'love 'you)</div>
+
+<div class="live" id="lovelamp38">
+((lambda (a c b) (list a b c)) 'I 'you 'love)</div>
+
+<div class="live" id="lovelamp39">
+(apply (lambda (a c b) (list a b c)) 
+       (list 'I 'you 'love))</div>
+
+<div class="live" id="lovelamp40">
+((lambda (a b [c 'you]) (list a b c)) 'I 'love)</div>
+
+<div class="live" id="lovelamp41">
+((lambda (#:foo b #:bar c #:baz a)
+   (list a b c))
+ #:baz 'I #:bar 'you #:foo 'love)</div>
+
+<div class="live" id="lovelamp  42">
+((lambda (a b #:key [c 'me]) (list a b c)) #:key 'you 'I 'love)</div>
+
+<div class="live" id="lovelamp43">
+(let ([f (λ (x)
+           (λ (y)
+             (λ (z)
+               (list x y z))))])
+  (((f 'I) 'love) 'you))</div>
+
+
+<div class="live" id="lovelamp44">
+(let ([f (case-lambda 
+           [() 'I]
+           [(x) 'love]
+           [(x y) 'you])])
+  (list (f) (f 1) (f 1 2)))</div>
+
+    
+
+<div class="live" id="lovelamp45">
+(append '(I love) '(you))</div>
+
+<div class="live" id="lovelamp46">
+(append '(I) '(love) '(you))</div>
+
+<div class="live" id="lovelamp47">
+(flatten '((I) (love you)))</div>
+
+<div class="live" id="lovelamp48">
+(flatten '((I) (love) (you) ()))</div>
+
+<div class="live" id="lovelamp49">
+(reverse '(you love I))</div>
+
+<div class="live" id="lovelamp50">
+(remove 'cannot '(I cannot love you))</div>
+
+<div class="live" id="lovelamp51">
+(remove-duplicates '(I love love love you))</div>
+
+<div class="live" id="lovelamp52">
+(take '(I love you not) 3)</div>
+
+;;
+(take-right '(I think I love you) 3)
+      
+<div class="live" id="lovelamp53">
+(drop '(She knows I love you) 2)</div>
+
+<div class="live" id="lovelamp54">
+(drop-right '(I love you no more) 2)</div>
+
+
+
+<div class="live" id="lovelamp55">
+(map (lambda (x) (if (eq? x 'hate) 'love x))
+     '(I hate you))</div>
+
+<div class="live" id="lovelamp56">
+(map (λ (i) (vector-ref #(love you I) i))
+     '(2 0 1))</div>
+
+<div class="live" id="lovelamp57">
+(map (λ (k) (hash-ref #hash(("foo" . I) 
+                            ("baz" . you)
+                            ("bar" . love)) k))
+     '("foo" "bar" "baz"))</div>
+     
+<div class="live" id="lovelamp58">
+(map string->symbol (sort (list "love" "you" "I") string<?))</div>
+
+<div class="live" id="lovelamp59">
+(map string->symbol (string-split "I-love-you" "-"))</div>
+
+<div class="live" id="lovelamp60">
+(flatten (map (λ (a b) (cons a b))
+              '(I love you)
+              '(() () ())))</div>
+
+
+<div class="live" id="lovelamp  61">
+(filter (lambda (x) (not (eq? x 'cannot))) 
+        '(I cannot love you))</div>
+
+<div class="live" id="lovelamp62">
+(foldr cons '() '(I love you))</div>
+
+<div class="live" id="lovelamp63">
+(foldl cons '() '(you love I))</div>
+
+<div class="live" id="lovelamp64">
+(for/list ([word #(I love you)])
+  word)</div>
+
+
+<div class="live" id="lovelamp65">
+(cond
+  [(even? 3) '(Not me)]
+  [(odd?  3) '(I love you)])</div>
+  
+<div class="live" id="lovelamp66">
+(cond
+  [(even? 3) '(Not me)]
+  [(odd?  2) '(Nor I)]
+  [else      '(I love you)])</div>
+  
+<div class="live" id="lovelamp67">
+(case 1
+  [(a b c) '(Not me)]
+  [(3 2 1) '(I love you)])</div>
+
+
+
+
+<div class="live" id="lovelamp68">
+(match #t
+  [#f '(Not me)]
+  [#t '(I love you)])</div>
+
+<div class="live" id="lovelamp69">
+(match #t
+  [#f '(Not me)]
+  [_  '(I love you)])</div>
+
+<div class="live" id="lovelamp70">
+(match 'you
+  ['me '(Not me)]
+  [x   `(I love ,x)])</div>
+
+<div class="live" id="lovelamp71">
+(match '(foo bar)
+  ['(foo bar) '(I love you)])</div>
+
+<div class="live" id="lovelamp72">
+(match '(I cannot lift you)
+  [(list 'I 'cannot _ c) `(I love ,c)])</div>
+
+<div class="live" id="lovelamp73">
+(match '(2 3 1)
+  [(list-no-order 3 1 2)
+   '(I love you)])</div>
+
+<div class="live" id="lovelamp74">
+(match '(love you I)
+  [(list-no-order 'I 'love foo)
+   `(I love ,foo)])</div>
+
+<div class="live" id="lovelamp75">
+(match '(3 . 4)
+  [(cons 3 4)
+   '(I love you)])</div>
+
+<div class="live" id="lovelamp76">
+(match '(3 love 1)
+  [(cons 3 (cons x (cons 1 '())))
+   `(I ,x you)])</div>
+
+<div class="live" id="lovelamp77">
+(match '(3 love 1)
+  [(cons 3 (cons x (cons 1 '())))
+   `(I (unquote x) you)])</div>
+
+<div class="live" id="lovelamp78">
+(match 3
+  [(? symbol?) '(Not me)]
+  [(? string?) '(Me neither)]
+  [(? number?) '(I love you)])</div>
+
+<div class="live" id="lovelamp79">
+(match 3
+  [(not 4)   '(I love you)]
+  [3         'unreachable])</div>
+
+<div class="live" id="lovelamp  80">
+(match '(you love I)
+  [`(,c love ,a)
+   `(,a love ,c)])</div>
+
+<div class="live" id="lovelamp81">
+(match '(We love you)
+  [`(,_ . ,rest)
+   `(I . ,rest)])</div>
+
+<div class="live" id="lovelamp82">
+(match '(We love you)
+  [`(,_ ,rest ...)
+   `(I ,@rest)])</div>
+
+<div class="live" id="lovelamp83">
+(match '(We love you)
+  [(list _ rest ...)
+   `(I ,@rest)])</div>
+
+<div class="live" id="lovelamp84">
+(match #(1 love 3)
+  [(vector (? number?) b (? number?))
+   `(I ,b you)])</div>
+
+<div class="live" id="lovelamp85">
+(match #hash((1 . I) (3 . you) (5 . love))
+  [(hash-table (1 a) (5 b) (3 c))
+   (list a b c)])</div>
+
+<div class="live" id="lovelamp86">
+(match 'you
+  [(and x (? symbol?)) `(I love ,x)])</div>
+
+<div class="live" id="lovelamp87">
+(match '100
+  [(app (λ (n) (- n 1)) 99)
+   '(I love you)])</div>
+
+
+<div class="live" id="lovelamp88">
+(list 'I 
+      (call/cc (λ (cc)
+                 (error (cc 'love))))
+      'you)</div>
+
+<div class="live" id="lovelamp89">
+(with-handlers ([symbol? (lambda (p)
+                             `(I ,p you))])
+    (raise 'love))</div>
+
+
+<div class="live" id="lovelamp90">
+(let ([problem (delay (car '()))])
+  '(I love you))</div>
+
+<div class="live" id="lovelamp91">
+`(I ,(force (delay 'love)) you)</div>
+ 
+<div class="live" id="lovelamp92">
+(letrec ([x (delay (list a b c))]
+         [a 'I]
+         [c 'you]
+         [b 'love])
+  (force x))</div>
+       
+
+
+<div class="live" id="lovelamp93">
+(let ([word 'know])
+  (set! word 'love)
+  `(I ,word you))</div>
+
+<div class="live" id="lovelamp94">
+(let ([word-box (box 'know)])
+  (set-box! word-box 'love)
+  `(I ,(unbox word-box) you))</div>
+
+
+<div class="live" id="lovelamp95">
+(let-syntax ([un-yoda-list
+              (syntax-rules ()
+                [(_ c a b) (list 'a 'b 'c)])])
+  (un-yoda-list you I love))</div>
+
+<div class="live" id="lovelamp96">
+(let ((in (open-input-string "I love you")))
+  (cons (read in)
+        (cons (read in)
+              (cons (read in) '()))))</div>
+
+<div class="live" id="lovelamp97">
+(list (touch (future (λ () 'I))) 'love 'you)</div>
+
+<div class="live" id="lovelamp98">
+(let ([a (make-parameter "a")] 
+      [b (make-parameter "b")]
+      [c (make-parameter "c")])
+  (parameterize ([a 'i] [b 'love] [c 'you])
+    (list (a) 
+          ((parameterize ([b 'dislike])
+             (λ () (b))))
+          (c))))</div>
+
 {% endblock %}

@@ -4,27 +4,32 @@
 
 {% block content %}
 
-This interactive tutorial is based on the video <a href="">Running Backwards, Part 1: (I love you)</a>, the first in a series of videos on relational programming.  Click the triangle below a code snippet to run the code.  Click on a box containing the code in order to edit the code, which you can then run by clicking on the triangle below it.
+This interactive tutorial is based on the video <a href="http://youtu.be/kS_2_-E_JjU">Running Backwards, Part 1: (I love you)</a>, the first in a series of videos on relational programming.  Click the triangle below a code snippet to run the code.  Click on a box containing the code in order to edit the code, which you can then run by clicking on the triangle below it.
 
 <h2>(I love you)</h2>
 <p>
 Matt Might's blog post <a href="http://matt.might.net/articles/i-love-you-in-racket/">99 ways to say <code>'(I love you)</code> in Racket</a>, contains...99 programs that evaluate to the list <code>(I love you)</code> in the <a href="http://racket-lang.org/">Racket</a> programming language.  We will be using the Scheme programming language instead of Racket---most or all of these programs will evaluate identically in both languages.
 </p>
 
-<p>
-<code>==</code> unifies two terms. <code>fresh</code>, which
-syntactically looks like <code>lambda</code>, introduces lexically-scoped
-Scheme variables that are bound to new logic variables; <code>fresh</code>
-also performs conjunction of the relations within its body. Thus
-</p>
-<div class="live" id="ex1">
-(fresh (x y z) (== x z) (== 3 y))</div>
-<p>
-would introduce logic variables <code>x</code>, <code>y</code>, and <code>z</code>,
-then associate <code>x</code> with <code>z</code> and <code>y</code>
-with <code>3</code>.  This, however, is not a legal miniKanren
-program---we must wrap a <code>run</code> around the entire expression.
-</p>
+<div class="live" id="love1">
+(quote (I love you))</div>
+
+<div class="live" id="love2">
+(list (quote I) (quote love) (quote you))</div>
+
+<div class="live" id="love3">
+(cons 'I (cons 'love (cons 'you '())))</div>
+
+<div class="live" id="love4">
+(let ([words '(love you I)])
+  (list (car (cdr (cdr words)))
+        (car words)
+        (car (cdr words))))</div>
+
+
+
+
+
 <div class="live" id="ex2">
 (run 1 (q) (fresh (x y z) (== x z) (== 3 y)))</div>
 <p>

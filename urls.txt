@@ -1,12 +1,18 @@
-Running-Backwards--Part-1
-========================================
+Important URLs:
 
-Interactive code from episode 1 of my 'Running Backwards' videos on relational programming.
-
-
+To set up the tutorial:
 
 http://io.livecode.ch/repl/webyrd/Running-Backwards--Part-1
 
 http://io.livecode.ch/learn/webyrd/Running-Backwards--Part-1
 
+
+To refresh the tutorial code:
+
 http://io.livecode.ch/repl/webyrd/Running-Backwards--Part-1?refresh=1
+
+
+To use the tutorial:
+
+http://io.livecode.ch/learn/webyrd/Running-Backwards--Part-1
+

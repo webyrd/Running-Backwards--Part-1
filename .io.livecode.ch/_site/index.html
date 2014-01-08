@@ -88,7 +88,6 @@ If we were to replace <code>run 99</code> with <code>run 999</code> in the expre
 Just for fun, here are all the example expressions from Matt's blog post that evaluate to <code>(I love you)</code> in Scheme as well as Racket.  I've left out any examples which are legal Scheme.
 </p> 
 
-
 <div class="live" id="loveex0">
 '(I love you)</div>
 
@@ -209,12 +208,6 @@ Just for fun, here are all the example expressions from Matt's blog post that ev
 <div class="live" id="loveex33">
 (vector->list (vector 'I 'love 'you))</div>
 
-<div class="live" id="loveex34">
-(vector->list #(I love you))</div>
-
-<div class="live" id="loveex35">
-(stream->list (stream 'I 'love 'you))</div>
-
 <div class="live" id="loveex36">
 ((lambda args args) 'I 'love 'you)</div>
 
@@ -248,79 +241,31 @@ Just for fun, here are all the example expressions from Matt's blog post that ev
 <div class="live" id="loveex46">
 (append '(I) '(love) '(you))</div>
 
-<div class="live" id="loveex47">
-(flatten '((I) (love you)))</div>
-
-<div class="live" id="loveex48">
-(flatten '((I) (love) (you) ()))</div>
-
 <div class="live" id="loveex49">
 (reverse '(you love I))</div>
 
 <div class="live" id="loveex50">
 (remove 'cannot '(I cannot love you))</div>
 
-<div class="live" id="loveex51">
-(remove-duplicates '(I love love love you))</div>
-
-<div class="live" id="loveex52">
-(take '(I love you not) 3)</div>
-
-<div class="live" id="loveexdoh3">
-(take-right '(I think I love you) 3)</div>
-
-<div class="live" id="loveex53">
-(drop '(She knows I love you) 2)</div>
-
-<div class="live" id="loveex54">
-(drop-right '(I love you no more) 2)</div>
-
 <div class="live" id="loveex55">
 (map (lambda (x) (if (eq? x 'hate) 'love x))
      '(I hate you))</div>
-
-<div class="live" id="loveex56">
-(map (lambda (i) (vector-ref #(love you I) i))
-     '(2 0 1))</div>
-
-<div class="live" id="loveex57">
-(map (lambda (k) (hash-ref #hash(("foo" . I) 
-                            ("baz" . you)
-                            ("bar" . love)) k))
-     '("foo" "bar" "baz"))</div>
-     
-<div class="live" id="loveex58">
-(map string->symbol (sort (list "love" "you" "I") string<?))</div>
-
-<div class="live" id="loveex59">
-(map string->symbol (string-split "I-love-you" "-"))</div>
-
-<div class="live" id="loveex60">
-(flatten (map (lambda (a b) (cons a b))
-              '(I love you)
-              '(() () ())))</div>
 
 <div class="live" id="loveex61">
 (filter (lambda (x) (not (eq? x 'cannot))) 
         '(I cannot love you))</div>
 
-<div class="live" id="loveex62">
-(foldr cons '() '(I love you))</div>
-
-<div class="live" id="loveex63">
-(foldl cons '() '(you love I))</div>
-
 <div class="live" id="loveex65">
 (cond
   [(even? 3) '(Not me)]
   [(odd?  3) '(I love you)])</div>
-  
+
 <div class="live" id="loveex66">
 (cond
   [(even? 3) '(Not me)]
   [(odd?  2) '(Nor I)]
   [else      '(I love you)])</div>
-  
+
 <div class="live" id="loveex67">
 (case 1
   [(a b c) '(Not me)]
@@ -351,25 +296,10 @@ Just for fun, here are all the example expressions from Matt's blog post that ev
   (set! word 'love)
   `(I ,word you))</div>
 
-<div class="live" id="loveex94">
-(let ([word-box (box 'know)])
-  (set-box! word-box 'love)
-  `(I ,(unbox word-box) you))</div>
-
 <div class="live" id="loveex95">
 (let-syntax ([un-yoda-list
               (syntax-rules ()
                 [(_ c a b) (list 'a 'b 'c)])])
   (un-yoda-list you I love))</div>
-
-<div class="live" id="loveex96">
-(let ((in (open-input-string "I love you")))
-  (cons (read in)
-        (cons (read in)
-              (cons (read in) '()))))</div>
-
-<div class="live" id="loveex97">
-(list (touch (future (lambda () 'I))) 'love 'you)</div>
-
 
 {% endblock %}

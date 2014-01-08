@@ -1,12 +1,23 @@
 Running-Backwards--Part-1
 ========================================
 
-Interactive code from episode 1 of my 'Running Backwards' videos on relational programming.
+Complete code from episode 1 of my 'Running Backwards' videos on
+relational programming.
 
-
-
-http://io.livecode.ch/repl/webyrd/Running-Backwards--Part-1
+You can play with this code online at:
 
 http://io.livecode.ch/learn/webyrd/Running-Backwards--Part-1
 
-http://io.livecode.ch/repl/webyrd/Running-Backwards--Part-1?refresh=1
+----------------------------------------
+
+All files are written in Scheme, and have been tested under Vicare Scheme.
+
+----------------------------------------
+
+The files:
+
+``transcript.scm`` contains the transcript of the editing session from
+the video.
+
+``evalo.scm`` contains the relational evaluator, which uses the helper
+definitions in ``interp-helpers.scm`` and ``mk.scm``

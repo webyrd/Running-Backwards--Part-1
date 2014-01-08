@@ -62,6 +62,10 @@ Feel free to edit one of the examples above to include your own code, or paste i
 (list (car '(I . (a b c))) (car '(love . _.1))
      ((lambda () 'you)))</div>
 
+<p>
+Let's time how long it takes to generate 99 answers.  (On my laptop it takes around 8 milliseconds.)
+</p>
+
 <div class="live" id="time99">
 (time (length (run 99 (expr) (evalo expr '(I love you)))))</div>
 

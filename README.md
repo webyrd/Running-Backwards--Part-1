@@ -1,6 +1,10 @@
 Running-Backwards--Part-1
 ========================================
 
+** I have stopped making this series, at least for now.  Please see the newer 'miniKanren-uncourse' instead: https://github.com/webyrd/miniKanren-uncourse.
+
+---------------------------------------------
+
 Complete code from episode 1 of my 'Running Backwards' videos on
 relational programming:
 
